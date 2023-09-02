@@ -1,4 +1,3 @@
-# followed this guide, adapted to sveltekit
 # https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/
 FROM node:18.17.0-bookworm-slim as build
 RUN apt-get update && apt-get install -y --no-install-recommends dumb-init
@@ -23,5 +22,3 @@ USER node
 COPY --chown=node:node --from=build /usr/src/app/build /usr/src/app/build
 
 CMD ["dumb-init", "node", "build"]
-
-
